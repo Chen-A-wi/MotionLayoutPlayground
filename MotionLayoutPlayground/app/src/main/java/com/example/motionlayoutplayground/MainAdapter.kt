@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 
-class MainAdapter(private val context: Context, private val arrayList: ArrayList<String>) :
+class MainAdapter(private val context: Context, private val arrayList: ArrayList<DemoData>) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     lateinit var itemClickListener: ItemClickListener
 
@@ -41,7 +41,7 @@ class MainAdapter(private val context: Context, private val arrayList: ArrayList
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val content = arrayList[position]
+        val content = arrayList[position].itemContent
         holder.tvContent?.text = content
 
     }
