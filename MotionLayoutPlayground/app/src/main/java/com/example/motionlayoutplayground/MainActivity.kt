@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.ItemClickListener {
     }
 
     private fun initData() {
-        arrayList.add(DemoData("上下移動", R.layout.motion_basic))
+        arrayList.add(DemoData("左右滑動", R.layout.motion_basic))
         arrayList.add(DemoData("2", R.layout.motion_basic))
     }
 
