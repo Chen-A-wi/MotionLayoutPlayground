@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 
-class MainAdapter(private val context: Context, private val arrayList: ArrayList<DemoData>) :
+class MainAdapter(
+    private val arrayList: ArrayList<DemoData>,
+    private val itemClick: ((view: View, position: Int) -> Unit)? = null
+) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     lateinit var itemClickListener: ItemClickListener
 
@@ -24,14 +27,14 @@ class MainAdapter(private val context: Context, private val arrayList: ArrayList
 
         override fun onClick(v: View?) {
             v?.apply {
-                itemClickListener.onItemClick(v,adapterPosition)
+                itemClickListener.onItemClick(v, adapterPosition)
             }
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
 
         return ViewHolder(view)
     }
